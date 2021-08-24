@@ -1,0 +1,492 @@
+@import '../../shared/Style/index';
+
+.header {
+    box-sizing: border-box;
+    box-shadow: 0 0 5px $headerShadow;
+    transition: all 0.4s ease;
+    transform: translate(0, 0);
+    z-index: 9;
+    position: relative;
+    width: 100%;
+    background: $white;
+    &.fixed {
+        z-index: 9;
+        position: fixed;
+        top: 14px;
+        transform: translate(0, -14px);
+    }
+    &_logo {
+        width: 10%;
+        text-align: left;
+        &-img {
+            max-width: 100px;
+        }
+    }
+
+    &_topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $paddingMd 0px;
+        @include sectionWidth;
+    }
+
+    &_search {
+        @include formField;
+        padding: $paddingMd;
+        width: 100%;
+        margin-bottom: 0;
+
+        &_form {
+            width: 32%;
+            position: relative;
+            &_icon {
+                position: absolute;
+                right: 10px;
+                top: 16px;
+                color: $grey-bbb;
+            }
+        }
+    }
+    &_login {
+        cursor: pointer;
+        position: relative;
+        width: 4%;
+        &-icon {
+            max-width: 24px;
+            display: block;
+            margin: auto;
+        }
+        &-text {
+            font-weight: bold;
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+    &_signUp {
+        color: $primary-color;
+        cursor: pointer;
+        font-weight: bold;
+
+        &-social {
+            background: $secondary-color;
+            padding: $paddingMd;
+            border-radius: $borderRadius;
+            color: $white;
+            font-weight: bold;
+            cursor: pointer;
+
+            .socialIcon {
+                width: 15px;
+                vertical-align: middle;
+                margin-right: 16px;
+            }
+        }
+    }
+
+    // menu css here
+    .menu {
+        width: 42%;
+        &_item {
+            margin: 0;
+            display: inline-block;
+            padding: $padding;
+            font-weight: bold;
+            cursor: pointer;
+            vertical-align: top;
+            position: relative;
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:hover {
+                color: $primary-color;
+                &::after {
+                    width: 100%;
+                    transition: all 0.5s;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 0;
+                content: '.';
+                color: transparent;
+                background: $primary-color;
+                height: 2px;
+            }
+
+            &_selected {
+                color: $primary-color;
+                &::after {
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    width: 100%;
+                    content: '.';
+                    color: transparent;
+                    background: $primary-color;
+                    height: 2px;
+                }
+            }
+        }
+        .menuBar {
+            display: none;
+        }
+    }
+    .mobileMenu {
+        display: none;
+    }
+    .mobileMenu_search {
+        display: none;
+    }
+    &_cart {
+        color: $black-333;
+        font-weight: bold;
+        cursor: pointer;
+        width: 4%;
+        padding-right: 6px;
+        &-icon {
+            max-width: 24px;
+        }
+        &-text {
+            font-size: 0.8rem;
+            display: block;
+        }
+    }
+}
+
+// user menu
+.userMenu {
+    box-shadow: 0 12px 15px 0 $headerShadow;
+    padding: $paddingMd;
+    text-align: left;
+    border-radius: $borderRadius;
+    position: absolute;
+    background: $white;
+    right: 0;
+    width: 100%;
+    min-width: 100px;
+    display: none;
+    z-index: 2;
+    &_item {
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 6px;
+        color: $black-333;
+        font-weight: 500;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}
+.header_login:hover .userMenu {
+    display: block;
+}
+
+//multilanguage
+.multilang {
+    position: relative;
+    cursor: pointer;
+    &_icon {
+        width: 28px;
+        display: block;
+    }
+    &_text {
+        font-size: 0.8rem;
+        display: block;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    &_drop {
+        display: none;
+        box-shadow: 0 12px 15px 0 #0000004d;
+        padding: 12px;
+        text-align: left;
+        border-radius: 4px;
+        position: absolute;
+        background: $white;
+        right: 0;
+        top: 30px;
+        width: 100%;
+        min-width: 100px;
+        &_list {
+            margin: 0;
+            padding-bottom: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            cursor: pointer;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+    &:hover {
+        .multilang_drop {
+            display: block;
+        }
+    }
+}
+
+.loginOverlay {
+    background: none;
+    &_modal {
+        width: 300px;
+        border-radius: $borderRadius;
+        position: absolute;
+        top: 3.6rem;
+        right: 10rem;
+        border: 1px solid $grey-e5e5e5;
+        text-align: center;
+        padding: $padding;
+        margin: 0;
+        .loginRegForm {
+            &_head {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+    .loginOverlay_modal {
+        right: 7rem;
+    }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1500px) {
+    .loginOverlay_modal {
+        right: 10rem;
+    }
+}
+@media only screen and (min-width: 1500px) {
+    .react-responsive-modal-overlay.loginOverlay {
+        background: #00000080;
+    }
+    .loginOverlay_modal {
+        right: 40%;
+        top: 35%;
+    }
+}
+// desktop and ipad pro
+@media only screen and (min-width: $mediaLaptopMin) and (max-width: $mediaLaptopMax) {
+    .header {
+        &_logo {
+            width: auto;
+            &-img {
+                max-width: 80px;
+            }
+        }
+        .menu {
+            width: 46%;
+            &_item {
+                padding: $paddingMd;
+            }
+        }
+        &_search {
+            &_form {
+                width: 32%;
+            }
+        }
+    }
+    .loginOverlay {
+        &_modal {
+            right: 2rem;
+        }
+    }
+}
+
+// for  tablets
+@media (max-width: $mediaTabMax) {
+    .loginOverlay {
+        &_modal {
+            right: 1.4rem;
+        }
+    }
+    .header {
+        &_logo {
+            width: 16%;
+            text-align: left;
+            &-img {
+                max-width: 100px;
+            }
+        }
+        &_search_form {
+            display: block;
+            width: 46%;
+        }
+        .menu {
+            display: none;
+        }
+        .mobileMenu {
+            display: block;
+            &_content {
+                height: 100vh;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-image: linear-gradient(
+                    to right,
+                    $primary-color 70%,
+                    $white 30%
+                );
+                overflow-x: hidden;
+                transition: 0.5s;
+                &.hide {
+                    width: 0;
+                }
+                &.show {
+                    width: 100%;
+                }
+            }
+            &_item {
+                color: $white;
+                text-align: left;
+                padding: 16px;
+                border-bottom: 1px solid $white;
+                margin: 0;
+                font-weight: bold;
+            }
+            &_menuBar {
+                font-size: 2rem;
+            }
+            &_closeBtn {
+                font-size: 2rem;
+                color: $secondary-color;
+                position: absolute;
+                right: 15px;
+                top: 0;
+                margin: 0;
+            }
+            &_search {
+                display: none;
+            }
+        }
+        &_search {
+            display: block;
+        }
+        &_topbar {
+            padding: $paddingMd 0;
+        }
+        &_login {
+            font-size: 0.8em;
+            width: auto;
+        }
+        &_cart {
+            width: auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .header {
+        &_logo {
+            width: 20%;
+            &-img {
+                max-width: 80px;
+            }
+        }
+    }
+}
+
+// For mobile device
+@media (max-width: $mediaTabMin) {
+    .loginOverlay {
+        &_modal {
+            right: 1.4rem;
+        }
+    }
+    .header {
+        padding-bottom: $paddingMd;
+        &_logo {
+            width: 30%;
+            text-align: left;
+            &-img {
+                max-width: 90px;
+            }
+        }
+        &_search_form {
+            display: none;
+        }
+        .menu {
+            display: none;
+        }
+        .mobileMenu {
+            display: block;
+            &_content {
+                height: 100vh;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-image: linear-gradient(
+                    to right,
+                    $primary-color 70%,
+                    $white 30%
+                );
+                overflow-x: hidden;
+                transition: 0.5s;
+                &.hide {
+                    width: 0;
+                }
+                &.show {
+                    width: 100%;
+                }
+            }
+            &_item {
+                color: $white;
+                text-align: left;
+                padding: 16px;
+                border-bottom: 1px solid $white;
+                margin: 0;
+                font-weight: bold;
+            }
+            &_menuBar {
+                font-size: 2rem;
+            }
+            &_closeBtn {
+                font-size: 2rem;
+                color: $secondary-color;
+                position: absolute;
+                right: 15px;
+                top: 0;
+                margin: 0;
+            }
+            &_search {
+                display: block;
+                position: relative;
+                &_input {
+                    @include formField;
+                    @include sectionWidth;
+                    padding: 6px 12px;
+                }
+                &_icon {
+                    position: absolute;
+                    right: 20px;
+                    top: 10px;
+                    color: $grey-bbb;
+                }
+            }
+        }
+        &_search {
+            display: none;
+        }
+        &_topbar {
+            padding: $paddingMd 0;
+        }
+        &_login {
+            font-size: 0.8em;
+            width: auto;
+        }
+        &_cart {
+            width: auto;
+        }
+    }
+}

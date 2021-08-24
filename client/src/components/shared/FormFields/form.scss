@@ -1,0 +1,17 @@
+@import '../../shared/Style/index';
+
+.form {
+    &_field {
+        @include formField;
+    }
+    &_btn {
+        @include hyGenieBtn;
+        width: 100%;
+        font-size: 1.2rem;
+        margin-bottom: $margin;
+    }
+    &_loader {
+        width: 60px;
+        height: 60px;
+    }
+}
