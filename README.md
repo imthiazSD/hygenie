@@ -39,19 +39,6 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://hygenie.netlify.app/)
 
-HyGenie is an unique idea of selling Masks, Sanitizers, Gloves and Hand Wash which is now the essential part of our day to day life. In this pandemic situation we were short of these products and it was not available easily so from now HyGenie will take care of all these essential products.
-
-Vision:
-
-- Provide a seamless shopping experience to worldwide customers.
-- Authentic and original products
-- Websites can be accessed in any language with multilingual support to any part of the world.
-
-Goals:
-
-- To make a better shopping experience all over the world.
-- Affordable to all ranges of customers at best price.
-- Customers can order the products on the go even with their mobile device with ease.
 
 Features:
 
@@ -70,8 +57,6 @@ Features:
 <!-- GETTING STARTED -->
 
 ## Getting Started
-
-Following are the simple steps to run this project.
 
 ### Prerequisites
 
